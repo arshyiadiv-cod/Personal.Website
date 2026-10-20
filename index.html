@@ -3,13 +3,153 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>personal-website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Primary SEO -->
+  <title>عرشیا زرنگار | Arshiya Zarnegar — Front-End Developer</title>
+  <meta name="description"
+    content="عرشیا زرنگار (Arshiya Zarnegar) — فرانت‌اند دولوپر مقیم تهران. طراحی و ساخت وب‌سایت‌های مدرن، ریسپانسیو و کاربرپسند با React، UI تمیز و تجربه کاربری حرفه‌ای. Front-end developer in Tehran building modern, responsive web experiences." />
+  <meta name="keywords"
+    content="عرشیا زرنگار, عرشیا, زرنگار, Arshiya Zarnegar, Arshiya, Zarnegar, فرانت اند دولوپر, front-end developer, React developer, web developer Tehran, portfolio, برنامه‌نویس فرانت‌اند تهران" />
+  <meta name="author" content="عرشیا زرنگار | Arshiya Zarnegar" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#087ff5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#080b10" media="(prefers-color-scheme: dark)" />
+  <meta name="application-name" content="عرشیا زرنگار" />
+  <meta name="apple-mobile-web-app-title" content="عرشیا زرنگار" />
+
+  <!-- Update this to your real domain after deploy -->
+  <link rel="canonical" href="https://arshiyazarnegar.vercel.app/" />
+  <link rel="alternate" hreflang="en" href="https://arshiyazarnegar.vercel.app/" />
+  <link rel="alternate" hreflang="fa" href="https://arshiyazarnegar.vercel.app/" />
+  <link rel="alternate" hreflang="x-default" href="https://arshiyazarnegar.vercel.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="عرشیا زرنگار | Arshiya Zarnegar" />
+  <meta property="og:locale" content="fa_IR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="https://arshiyazarnegar.vercel.app/" />
+  <meta property="og:title" content="عرشیا زرنگار | Arshiya Zarnegar — Front-End Developer" />
+  <meta property="og:description"
+    content="فرانت‌اند دولوپر مقیم تهران. وب‌سایت‌های مدرن و ریسپانسیو با کدنویسی تمیز و طراحی خلاقانه. Front-end developer based in Tehran." />
+  <meta property="og:image" content="https://arshiyazarnegar.vercel.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="عرشیا زرنگار — Front-End Developer" />
+  <meta property="profile:first_name" content="Arshiya" />
+  <meta property="profile:last_name" content="Zarnegar" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="عرشیا زرنگار | Arshiya Zarnegar — Front-End Developer" />
+  <meta name="twitter:description"
+    content="فرانت‌اند دولوپر مقیم تهران. Modern, responsive web experiences with clean code and creative design." />
+  <meta name="twitter:image" content="https://arshiyazarnegar.vercel.app/og-image.jpg" />
+  <meta name="twitter:image:alt" content="عرشیا زرنگار — Front-End Developer" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Syne:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Prevent theme flash before React loads -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var theme = saved === "light" || saved === "dark"
+          ? saved
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+  <!-- Structured data: Person -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://arshiyazarnegar.vercel.app/#person",
+      "name": "Arshiya Zarnegar",
+      "alternateName": [
+        "عرشیا زرنگار",
+        "عرشیا",
+        "Arshiya",
+        "Zarnegar",
+        "Arshya Zarnegar"
+      ],
+      "jobTitle": "Front-End Developer",
+      "description": "عرشیا زرنگار، فرانت‌اند دولوپر مقیم تهران. ساخت تجربه وب مدرن، ریسپانسیو و کاربرپسند.",
+      "url": "https://arshiyazarnegar.vercel.app/",
+      "image": "https://arshiyazarnegar.vercel.app/og-image.jpg",
+      "email": "mailto:arshyiadiv@gmail.com",
+      "telephone": ["+989395913600", "+989905349231"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tehran",
+        "addressCountry": "IR"
+      },
+      "nationality": "Iranian",
+      "knowsAbout": [
+        "Front-End Development",
+        "React",
+        "JavaScript",
+        "TypeScript",
+        "UI/UX",
+        "Responsive Web Design"
+      ],
+      "sameAs": [
+        "https://github.com/arshyiadiv-cod",
+        "https://www.instagram.com/programmer._.404/",
+        "https://www.linkedin.com/in/arshya-zarnegar-850926421/",
+        "https://t.me/Arshiyazarnegar"
+      ]
+    }
+  </script>
+
+  <!-- Structured data: WebSite -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://arshiyazarnegar.vercel.app/#website",
+      "name": "عرشیا زرنگار | Arshiya Zarnegar",
+      "alternateName": "Arshiya Zarnegar Portfolio",
+      "url": "https://arshiyazarnegar.vercel.app/",
+      "description": "پورتفولیو عرشیا زرنگار — فرانت‌اند دولوپر",
+      "inLanguage": ["fa", "en"],
+      "publisher": {
+        "@id": "https://arshiyazarnegar.vercel.app/#person"
+      }
+    }
+  </script>
+
+  <!-- Structured data: ProfilePage -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "عرشیا زرنگار | Arshiya Zarnegar",
+      "url": "https://arshiyazarnegar.vercel.app/",
+      "mainEntity": {
+        "@id": "https://arshiyazarnegar.vercel.app/#person"
+      }
+    }
+  </script>
 </head>
 
 <body>
   <div id="root"></div>
-
   <script type="module" src="/src/component.jsx/main.jsx"></script>
 </body>
 

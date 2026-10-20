@@ -5,26 +5,64 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 90px);
-
+  min-height: calc(100vh - 80px);
+  min-height: calc(100dvh - 80px);
   overflow: hidden;
-
-  background-color: #ffffff;
+  isolation: isolate;
 }
 
-/* =========================================================
-   HERO CONTENT
-========================================================= */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(40px);
+}
+
+.hero-orb--one {
+  width: min(52vw, 560px);
+  height: min(52vw, 560px);
+  top: -8%;
+  right: -4%;
+  background: radial-gradient(circle, var(--bg-glow), transparent 68%);
+  animation: orb-float 10s ease-in-out infinite;
+}
+
+.hero-orb--two {
+  width: min(38vw, 380px);
+  height: min(38vw, 380px);
+  bottom: 8%;
+  left: -6%;
+  background: radial-gradient(circle, var(--bg-glow-2), transparent 70%);
+  animation: orb-float 12s ease-in-out infinite reverse;
+}
+
+@keyframes orb-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(12px, -18px) scale(1.05);
+  }
+}
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 80px);
+  min-height: calc(100dvh - 80px);
 
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: end;
+  column-gap: clamp(20px, 4vw, 64px);
 
-  padding: 50px 8% 90px;
-
+  padding:
+    clamp(28px, 5vh, 56px)
+    clamp(16px, 5vw, 8%)
+    clamp(88px, 12vh, 110px);
   box-sizing: border-box;
 }
 
@@ -33,126 +71,132 @@
 ========================================================= */
 
 .Introduction {
-  width: 50%;
-
+  width: 100%;
+  max-width: 620px;
   display: flex;
   flex-direction: column;
-
   position: relative;
   z-index: 2;
+  padding-bottom: clamp(20px, 4vh, 48px);
 }
-
-/* =========================================================
-   HELLO
-========================================================= */
 
 #hello {
-  margin: 0 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 20px;
 
-  color: #718096;
-
-  font-size: 14px;
-  font-weight: 400;
-
-  letter-spacing: 4px;
+  color: var(--text-soft);
+  font-family: var(--font-body);
+  font-size: clamp(11px, 1.2vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.22em;
 }
 
-/* =========================================================
-   NAME
-========================================================= */
+.hello-line {
+  display: inline-block;
+  width: clamp(36px, 6vw, 56px);
+  height: 1px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.hero-name {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 0;
+}
 
 #arshiya,
 #zarnegar {
   margin: 0;
-
-  color: #101820;
-
-  font-size: clamp(48px, 5.5vw, 80px);
-
+  color: var(--text-heading);
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.8vw, 64px);
   font-weight: 800;
   font-style: italic;
-
-  line-height: 0.94;
-
-  letter-spacing: 2px;
-}
-
-#arshiya {
-  padding-left: 0;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  word-break: break-word;
 }
 
 #zarnegar {
-  padding-left: 0;
+  background: linear-gradient(120deg, var(--text-heading) 40%, var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-
-/* =========================================================
-   FRONT-END DEVELOPER
-========================================================= */
 
 #front {
-  margin: 26px 0 0;
-
-  color: #42566d;
-
-  font-size: clamp(17px, 1.5vw, 23px);
-
-  font-weight: 400;
-
-  letter-spacing: 4px;
+  margin: 22px 0 0;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.5vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
 }
-
-/* =========================================================
-   EXPERIENCE
-========================================================= */
 
 #Experience {
-  margin-top: 20px;
-
-  color: #687b91;
-
-  font-size: 15px;
-
-  line-height: 1.8;
-}
-
-#Experience p {
-  margin: 0;
+  max-width: 440px;
+  margin-top: 18px;
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.75;
 }
 
 /* =========================================================
-   PROJECT BUTTON
+   CTAs
 ========================================================= */
 
-#VIW-project {
-  width: 225px;
-  height: 52px;
-
+.hero-ctas {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+#VIW-project,
+.hero-secondary {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  margin-top: 30px;
-
-  border-radius: 30px;
-
-  background-color: #087ff5;
-
-  color: #ffffff;
-
-  text-decoration: none;
-
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-family: var(--font-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.28s var(--ease-out);
+}
 
-  transition: all 0.3s ease;
+#VIW-project {
+  background-color: var(--accent);
+  color: #ffffff;
 }
 
 #VIW-project:hover {
-  background-color: #0568ce;
-
+  background-color: var(--accent-hover);
   transform: translateY(-3px);
+  box-shadow: 0 14px 28px var(--shadow-accent);
+}
 
-  box-shadow: 0 8px 20px rgba(8, 127, 245, 0.2);
+.hero-secondary {
+  border: 1.5px solid var(--border);
+  background: color-mix(in srgb, var(--bg-elevated) 55%, transparent);
+  backdrop-filter: blur(8px);
+  color: var(--text);
+}
+
+.hero-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* =========================================================
@@ -161,57 +205,158 @@
 
 .img-icon {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-
-  gap: 25px;
-
-  margin-top: 30px;
+  gap: 10px;
+  margin-top: 24px;
 }
 
-.img-icon img {
-  width: 22px;
-  height: 22px;
+.img-icon a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  object-fit: contain;
+  width: 44px;
+  height: 44px;
 
-  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-elevated);
+  color: var(--icon);
 
-  transition: all 0.3s ease;
+  transition: all 0.25s var(--ease-out);
 }
 
-.img-icon img:hover {
-  transform: translateY(-4px) scale(1.08);
+.img-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.img-icon a:hover {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--shadow-accent);
 }
 
 /* =========================================================
-   HERO IMAGE
+   HERO VISUAL / CUTOUT
 ========================================================= */
 
-.hero-image {
-  position: absolute;
-
-  right: 3%;
-  bottom: 45px;
-
-  width: 49%;
-  height: 82%;
-
+.hero-visual {
+  position: relative;
+  width: 100%;
+  min-height: min(64vh, 640px);
   display: flex;
   align-items: flex-end;
   justify-content: center;
-
   z-index: 1;
+}
 
+.hero-ring {
+  position: absolute;
+  width: min(88%, 460px);
+  aspect-ratio: 1;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      color-mix(in srgb, var(--accent) 18%, transparent),
+      transparent 62%
+    );
+  z-index: 0;
+  animation: ring-pulse 6s ease-in-out infinite;
+}
+
+@keyframes ring-pulse {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.04);
+    opacity: 1;
+  }
+}
+
+.hero-image-glow {
+  position: absolute;
+  width: 75%;
+  height: 48%;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--bg-glow), transparent 72%);
+  filter: blur(22px);
+  z-index: 0;
+}
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 520px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   pointer-events: none;
 }
 
 .hero-image img {
   width: 100%;
-  height: 100%;
-
+  height: auto;
+  max-height: min(72vh, 700px);
   object-fit: contain;
-
   object-position: center bottom;
+  filter: drop-shadow(0 28px 48px rgba(8, 24, 48, 0.28));
+  transform-origin: center bottom;
+  animation: portrait-rise 1.1s var(--ease-out) both;
+}
+
+@keyframes portrait-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-floor {
+  position: absolute;
+  z-index: 1;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(70%, 340px);
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(8, 24, 48, 0.28),
+    transparent 70%
+  );
+  filter: blur(6px);
+}
+
+[data-theme="dark"] .hero-floor {
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 0, 0, 0.55),
+    transparent 70%
+  );
+}
+
+[data-theme="dark"] .hero-image img {
+  filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.55));
 }
 
 /* =========================================================
@@ -220,30 +365,110 @@
 
 .hero-bottom {
   position: absolute;
-
-  left: 3%;
-  right: 3%;
-  bottom: 22px;
-
-  height: 32px;
+  left: clamp(16px, 5vw, 4%);
+  right: clamp(16px, 5vw, 4%);
+  bottom: 20px;
+  z-index: 2;
 
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 16px;
 
-  padding-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-soft);
 
-  border-top: 1px solid #c5cbd2;
+  color: var(--text-soft);
+  font-family: var(--font-body);
+  font-size: clamp(9px, 1.1vw, 11px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
 
-  color: #718096;
-
-  font-size: 9px;
-
-  letter-spacing: 3px;
+.location,
+.scroll {
+  min-width: 0;
 }
 
 .scroll {
-  color: #333333;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--scroll);
+  text-decoration: none;
+}
+
+.scroll:hover {
+  color: var(--accent);
+}
+
+.scroll-arrow {
+  display: inline-block;
+  animation: scroll-bounce 1.6s var(--ease-out) infinite;
+}
+
+@keyframes scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+/* =========================================================
+   ENTRANCE MOTION
+========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: rise-in 0.8s var(--ease-out) forwards;
+}
+
+.reveal-1 {
+  animation-delay: 0.05s;
+}
+.reveal-2 {
+  animation-delay: 0.14s;
+}
+.reveal-3 {
+  animation-delay: 0.24s;
+}
+.reveal-4 {
+  animation-delay: 0.34s;
+}
+.reveal-5 {
+  animation-delay: 0.44s;
+}
+.reveal-6 {
+  animation-delay: 0.54s;
+}
+
+.reveal-image {
+  animation-name: fade-in;
+  animation-delay: 0.15s;
+  animation-duration: 1s;
+}
+
+@keyframes rise-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* =========================================================
@@ -252,77 +477,68 @@
 
 @media (max-width: 1200px) {
   .hero-content {
-    padding-left: 7%;
-    padding-right: 5%;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
   }
 
-  .Introduction {
-    width: 50%;
-  }
-
-  .hero-image {
-    width: 48%;
-    height: 80%;
-
-    right: 2%;
-    bottom: 40px;
-  }
-
-  #arshiya,
-  #zarnegar {
-    font-size: clamp(43px, 5.5vw, 68px);
+  .hero-visual {
+    min-height: min(58vh, 560px);
   }
 }
 
 /* =========================================================
-   TABLET
+   TABLET / STACK  (<= 1024)
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    overflow: visible;
+  }
+
   .hero-content {
-    padding: 55px 6% 90px;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    align-items: start;
+    row-gap: 8px;
+    padding:
+      28px
+      clamp(16px, 5vw, 36px)
+      28px;
   }
 
   .Introduction {
-    width: 53%;
-  }
-
-  .hero-image {
-    width: 46%;
-    height: 70%;
-
-    right: 0;
-    bottom: 35px;
-  }
-
-  #hello {
-    font-size: 12px;
-  }
-
-  #arshiya,
-  #zarnegar {
-    font-size: clamp(38px, 6vw, 54px);
+    max-width: none;
+    padding-bottom: 0;
   }
 
   #front {
-    margin-top: 20px;
-
-    font-size: 15px;
-
-    letter-spacing: 3px;
+    letter-spacing: 0.1em;
   }
 
-  #Experience {
-    font-size: 12px;
+  .hero-visual {
+    order: 2;
+    min-height: 0;
+    width: min(420px, 86%);
+    margin: 4px auto 0;
   }
 
-  #VIW-project {
+  .hero-image img {
+    max-height: min(52vh, 460px);
+  }
+
+  .hero-bottom {
+    position: static;
+    margin: 8px clamp(16px, 5vw, 36px) 20px;
+  }
+
+  .hero-orb--one {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-orb--two {
     width: 200px;
-    height: 48px;
-  }
-
-  .img-icon {
-    gap: 20px;
+    height: 200px;
   }
 }
 
@@ -330,149 +546,102 @@
    MOBILE
 ========================================================= */
 
-@media (max-width: 650px) {
-  .hero {
-    min-height: auto;
-
-    overflow: visible;
-  }
-
+@media (max-width: 640px) {
   .hero-content {
-    min-height: auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    padding: 55px 25px 120px;
-  }
-
-  .Introduction {
-    width: 100%;
+    padding: 24px 16px 16px;
   }
 
   #hello {
-    margin-bottom: 20px;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
+    margin-bottom: 14px;
+    letter-spacing: 0.16em;
   }
 
   #arshiya,
   #zarnegar {
-    font-size: clamp(38px, 12vw, 52px);
-
-    line-height: 1;
+    font-size: clamp(28px, 9vw, 40px);
   }
 
   #front {
-    margin-top: 20px;
-
-    font-size: 14px;
-
-    letter-spacing: 2px;
+    margin-top: 14px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
   }
 
   #Experience {
-    margin-top: 18px;
-
-    font-size: 12px;
-
-    line-height: 1.7;
+    margin-top: 14px;
+    font-size: 15px;
   }
 
-  #VIW-project {
-    width: 200px;
-    height: 48px;
-
-    margin-top: 25px;
+  .hero-ctas {
+    width: 100%;
+    margin-top: 22px;
   }
 
-  .img-icon {
-    margin-top: 25px;
-
-    gap: 22px;
+  #VIW-project,
+  .hero-secondary {
+    flex: 1 1 160px;
+    min-height: 48px;
   }
 
-  .img-icon img {
-    width: 20px;
-    height: 20px;
-  }
-
-  /* IMAGE */
-
-  .hero-image {
-    position: relative;
-
-    right: auto;
-    bottom: auto;
-
-    width: 85%;
-    height: auto;
-
-    margin: 25px auto 0;
+  .hero-visual {
+    width: min(360px, 92%);
   }
 
   .hero-image img {
-    width: 100%;
-    height: auto;
-
-    max-height: 450px;
-
-    object-fit: contain;
+    max-height: min(48vh, 400px);
   }
 
-  /* BOTTOM */
-
   .hero-bottom {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-
-    font-size: 8px;
-
-    letter-spacing: 2px;
+    margin: 4px 16px 18px;
+    letter-spacing: 0.08em;
   }
 }
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
 @media (max-width: 400px) {
+  #VIW-project,
+  .hero-secondary {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .hero-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .img-icon a {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-height: 520px) and (orientation: landscape) {
   .hero-content {
-    padding-left: 20px;
-    padding-right: 20px;
+    min-height: auto;
+    padding-top: 20px;
+    padding-bottom: 24px;
+  }
+
+  .hero-image img {
+    max-height: 220px;
   }
 
   #arshiya,
   #zarnegar {
-    font-size: 35px;
+    font-size: clamp(24px, 6vw, 34px);
   }
 
-  #front {
-    font-size: 12px;
-
-    letter-spacing: 1.5px;
+  .hero-orb {
+    display: none;
   }
+}
 
-  #Experience {
-    font-size: 11px;
-  }
-
-  #VIW-project {
-    width: 185px;
-  }
-
-  .hero-image {
-    width: 82%;
-  }
-
-  .hero-bottom {
-    left: 15px;
-    right: 15px;
-
-    font-size: 7px;
+@media (prefers-reduced-motion: reduce) {
+  .hero-orb,
+  .hero-ring,
+  .hero-image img,
+  .scroll-arrow {
+    animation: none !important;
   }
 }
