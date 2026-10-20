@@ -31,7 +31,12 @@ function Hero() {
           </p>
 
           <div className="hero-ctas reveal reveal-5">
-            <a id="VIW-project" href="#Projects">
+            <a
+              id="VIW-project"
+              href="https://github.com/arshyiadiv-cod"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View My Projects →
             </a>
             <a
