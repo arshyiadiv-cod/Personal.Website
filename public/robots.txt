@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://arshiyazarnegar.vercel.app/sitemap.xml
+Sitemap: https://arshiyazarnegar.ir/sitemap.xml

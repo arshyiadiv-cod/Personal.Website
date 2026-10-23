@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+.gitignore
+*.md
+.vscode
+.idea
+.DS_Store
+*.log
+eslint.config.js
+.oxlintrc.json
